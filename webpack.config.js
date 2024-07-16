@@ -1,10 +1,10 @@
-// webpack.config.js
+const nodeExternals = require('webpack-node-externals');
+
 module.exports = {
-    // Other webpack configuration settings...
-    resolve: {
-      fallback: {
-        "os": require.resolve("os-browserify/browser")
-      }
-    }
-  };
-  
+  // Your existing configuration
+  // ...
+  externals: [nodeExternals({
+    // Add more modules if needed
+    allowlist: ['stream']
+  })]
+};
